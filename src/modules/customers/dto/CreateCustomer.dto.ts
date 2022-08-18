@@ -1,6 +1,6 @@
 import { Type } from 'class-transformer';
 import { IsNumber, IsString, ValidateNested } from 'class-validator';
-import { CreateAddressDto } from './CreateAddress.dto';
+//import { CreateAddressDto } from './CreateAddress.dto';
 
 export class CreateCustomerDto {
   @IsNumber()
@@ -12,7 +12,7 @@ export class CreateCustomerDto {
   @IsNumber()
   age: number;
 
-  @ValidateNested()
-  @Type(() => CreateAddressDto)
-  address: CreateAddressDto;
+  // @ValidateNested()
+  // @Type(() => CreateAddressDto)
+  // address: CreateAddressDto;
 }

@@ -12,6 +12,6 @@ export class Customer {
   @Column()
   age: number;
 
-  @Column()
-  address: CreateAddressDto;
+  // @Column()
+  // address: CreateAddressDto;
 }

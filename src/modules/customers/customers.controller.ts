@@ -15,18 +15,18 @@ import { CreateCustomerDto } from './dto/CreateCustomer.dto';
 
 @Controller('customers')
 export class CustomersController {
-  constructor(private _customersService: CustomersService) {}
+  constructor(private customersService: CustomersService) {}
 
   @Get('/')
   getCustomers() {
-    const customers = this._customersService.getCustomers();
+    const customers = this.customersService.getCustomers();
     if (customers) return customers;
     else throw new HttpException('Customers not found', HttpStatus.NOT_FOUND);
   }
 
   @Get('/:id')
   getCustomerById(@Param('id', ParseIntPipe) id: number) {
-    const customer = this._customersService.getCustomerById(id);
+    const customer = this.customersService.getCustomerById(id);
     if (customer) return customer;
     else throw new HttpException('Customer not found', HttpStatus.NOT_FOUND);
   }
@@ -34,6 +34,6 @@ export class CustomersController {
   @Post('/create')
   @UsePipes(ValidationPipe)
   createCustomer(@Body() createCustomerDto: CreateCustomerDto) {
-    this._customersService.createCustomer(createCustomerDto);
+    this.customersService.createCustomer(createCustomerDto);
   }
 }
